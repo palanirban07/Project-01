@@ -1,0 +1,80 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Login {% endblock title %}
+{% block content %}
+<div
+      class="container mt-5 p-5"
+      style="
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        max-width: 460px;
+        background: rgb(247, 241, 107);
+        background: linear-gradient(
+          353deg,
+          rgba(247, 241, 107, 0.5802696078431373) 53%,
+          rgba(76, 215, 204, 0.8211659663865546) 67%,
+          rgba(0, 212, 255, 0.5998774509803921) 100%
+        );
+        border-radius: 2rem;
+      "
+    >
+  <form action="{% url 'register-user' %}" method="POST">
+    {% csrf_token %}
+    <div class="container d-flex flex-column align-items-center">
+      <h1>Login Form</h1>
+      <p>Please fill the form to login</p>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name<span class="text-danger">*</span></label>
+      <input
+        type="name"
+        placeholder="Enter your name"
+        class="form-control"
+        id="inputname"
+        name="name"
+        required
+        aria-describedby="name"
+      />
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address<span class="text-danger">*</span></label>
+      <input
+        type="email"
+        placeholder="Enter your email"
+        class="form-control"
+        id="exampleInputEmail1"
+        name="email"
+        required
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="userphone" class="form-label">Mobile <span class="text-danger">*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        id="userphone"
+        required
+        name="mobile"
+        />
+    </div>
+    <div class="mb-3">
+      <label for="userphone" class="form-label">Password <span class="text-danger">*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        id="userphone"
+        required
+        name="password"
+        />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<script>
+ let btn1 = document.querySelector('.btn')
+ let login_btn = document.querySelector('.login-btn')
+
+btn1.onclick = ()=>{
+  login_btn.inneerText = 'logout'
+}
+</script>
+{% endblock content %}
